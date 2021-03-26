@@ -11,13 +11,16 @@ f_o_t = open('os_tyazh.csv', 'r', encoding='utf16')
 f_t = open('tyazh.csv', 'r', encoding='utf8')
 f_nas = open('население1.csv', 'r', encoding='utf8')
 
+
 # set1 = set()
 # set2 = set()
-# def set_parser(file, set):
-#     for row in file.readlines()[1:]:
-#         row =  row.split(',')
-#         set.add(row[1].strip())
-#     return set
+def set_parser(file, set):
+    for row in file.readlines()[1:]:
+        row = row.split(',')
+        set.add(row[0].strip())
+    return set
+
+
 #
 #
 # set1 = set_parser(f_nas, set1)
@@ -100,9 +103,3 @@ with open('crime_final_coef.csv', 'w', encoding='utf8') as f:
         row = [k, v[0], '%.4f' % n]
         print(','.join(list(map(str, row))), file=f)
     f.close()
-
-
-
-
-
-
